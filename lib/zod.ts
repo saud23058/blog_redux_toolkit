@@ -5,5 +5,5 @@ export const postSchema = z.object({
   description: z.string().min(1, "Description is required"),
   imageUrl: z.string().url("Invalid image URL"),
   category: z.string().min(1, "Category is required"),
-  detail: z.string().min(1, "Detail is required"),
+  details: z.string().min(1, "Detail is required"),
 });

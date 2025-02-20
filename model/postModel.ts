@@ -6,7 +6,7 @@ interface IPost extends Document {
   imageUrl: string;
   category: string;
   views: number;
-  detail:string
+  details:string
 }
 
 const postSchema = new Schema<IPost>(
@@ -31,7 +31,7 @@ const postSchema = new Schema<IPost>(
     category: {
       type:String
     },
-    detail: {
+    details: {
       type:String
     }
   },

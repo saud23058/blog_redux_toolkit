@@ -1,10 +1,9 @@
-
+"use client"
 import Link from 'next/link'
 import React from 'react'
 
-const Home = async() => {
-
-  
+const Home = () => {
+ 
   return (
     <>
       <div className="w-full bg-pink-600 min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;">

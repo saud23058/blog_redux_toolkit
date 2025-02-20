@@ -11,8 +11,11 @@ export async function POST(req: NextRequest) {
     await DBconnection();
 
     const body = await req.json();
+    console.log(body);
+    
     const validation = postSchema.safeParse(body);
-
+ 
+      
     if (!validation.success) {
       return NextResponse.json(
         { message: "Validation failed", errors: validation.error.errors },
@@ -20,14 +23,16 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { title, description, imageUrl, category, detail } = validation.data;
+
+    
+    const { title, description, imageUrl, category, details } = validation.data;
 
     const newPost = await PostModel.create({
       title,
       description,
       imageUrl,
       category,
-      detail,
+      details,
     });
     const { id } = await getUserSession();
 
