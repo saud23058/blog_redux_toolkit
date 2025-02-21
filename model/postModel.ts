@@ -1,12 +1,12 @@
-import mongoose, { Document,Schema } from "mongoose";
-
+import mongoose, { Document, Schema} from "mongoose";
 interface IPost extends Document {
   title: string;
   description: string;
   imageUrl: string;
   category: string;
   views: number;
-  details:string
+  details: string;
+  authorId:string;
 }
 
 const postSchema = new Schema<IPost>(
@@ -29,10 +29,14 @@ const postSchema = new Schema<IPost>(
       default: 0,
     },
     category: {
-      type:String
+      type: String,
     },
     details: {
-      type:String
+      type: String,
+    },
+    authorId: {
+      type: String,
+      required:true
     }
   },
   {

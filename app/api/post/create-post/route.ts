@@ -11,8 +11,7 @@ export async function POST(req: NextRequest) {
     await DBconnection();
 
     const body = await req.json();
-    console.log(body);
-    
+  
     const validation = postSchema.safeParse(body);
  
       
@@ -26,15 +25,18 @@ export async function POST(req: NextRequest) {
 
     
     const { title, description, imageUrl, category, details } = validation.data;
-
+    const { id } = await getUserSession();
     const newPost = await PostModel.create({
       title,
       description,
       imageUrl,
       category,
       details,
-    });
-    const { id } = await getUserSession();
+      authorId: id.toString(),
+    },
+    );
+  
+
 
     await userModel.findByIdAndUpdate(id, {
       $push: { posts: newPost._id },

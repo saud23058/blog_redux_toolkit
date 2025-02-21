@@ -18,7 +18,7 @@ const Navbar = async () => {
             </button>
 
             <Link
-              href={`post/author-details/`}
+              href={`post/author-details/${session.user.id}`}
               className="h-12 w-12 flex justify-center items-center bg-blue-300 rounded-full overflow-hidden"
             >
               <Image
