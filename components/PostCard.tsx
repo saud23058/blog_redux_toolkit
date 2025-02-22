@@ -29,7 +29,7 @@ const PostCard = ({ post }: { post: PostCardType }) => {
           <span className="font-bold">{author?.username || "Unknown User"}</span>
           <span className="font-bold text-xl">{title}</span>
         </div>
-        <Link href={`/user/${author?.id}`}>
+        
           <Image
             width={48}
             height={48}
@@ -37,7 +37,7 @@ const PostCard = ({ post }: { post: PostCardType }) => {
             alt="User Profile"
             className="w-12 h-12 rounded-full border-2 border-gray-500 object-cover"
           />
-        </Link>
+      
       </div>
       <p className="mt-6 text-gray-600">{description}</p>
       <Link href={`/post/post-detail/${_id}`}>
